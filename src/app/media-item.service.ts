@@ -10,7 +10,7 @@ import { throwError } from 'rxjs';
 export class MediaItemService{
 
     constructor(private http: HttpClient){}
-
+    //method to get media items
     get(medium){
       const getOptions = {
         params: { medium }
@@ -18,22 +18,24 @@ export class MediaItemService{
         return this.http.get<MediaItemResponse>('mediaitems', getOptions)
         .pipe(map(response => { return response.mediaItems}),
         catchError(this.handleError));
-      
     }
+    //method to add a media item 
     add(mediaItem) {
         return this.http.post('mediaitems', mediaItem)
         .pipe(catchError(this.handleError));
-      }
+    }
+    //method to delete a media item
     delete(mediaItem){
         return this.http.delete(`mediaitems/${mediaItem.id}`)
         .pipe(catchError(this.handleError));;
     }
+    //error handler
     private handleError(error: HttpErrorResponse){
         console.log(error.message);
         return throwError('A data error occured, please try again');
     }
 }
-
+//exporting all media item variables 
 export interface MediaItem {
   id: number;
   name: string;

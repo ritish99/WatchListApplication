@@ -1,7 +1,7 @@
 import { Routes, RouterModule, Router } from '@angular/router';
 import { MediaItemListComponent} from './media-item-list.component';
 
-
+//initializing route for add
 const appRoutes: Routes = [
     {
         path: 'add',

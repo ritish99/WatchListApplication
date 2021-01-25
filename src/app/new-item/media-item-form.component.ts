@@ -4,6 +4,7 @@ import { MediaItemService } from '../media-item.service';
 import {lookupListToken} from '../providers';
 import { Router } from '@angular/router';
 
+//declaring component
 @Component({
   selector: 'mw-media-item-form',
   templateUrl: './media-item-form.component.html',
@@ -17,7 +18,7 @@ export class MediaItemFormComponent implements OnInit{
     @Inject(lookupListToken) public lookupLists,
     private router: Router) {}
 
-
+  //creating model for medium,name,category and year with default values and setting the validators for each field, and a method to handle submit request
   ngOnInit() {
     this.form = this.formBuilder.group({
       medium: this.formBuilder.control('Movies'),
@@ -48,7 +49,6 @@ export class MediaItemFormComponent implements OnInit{
       };
     }
   }
-
     onSubmit(mediaItem){
         console.log(mediaItem);
         this.mediaItemService.add(mediaItem)

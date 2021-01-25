@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 
+//initializing component 
 @Component({
   selector: 'mw-app',
   templateUrl: './app.component.html',
